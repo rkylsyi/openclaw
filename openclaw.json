@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.3.26",
+    "lastTouchedAt": "2026-03-27T23:53:51.635Z"
+  },
+  "agents": {
+    "list": [
+      {
+        "id": "planner",
+        "name": "Planner",
+        "model": "anthropic/claude-opus-4-6",
+        "thinkingDefault": "high"
+      },
+      {
+        "id": "main",
+        "default": true,
+        "name": "Main",
+        "model": "anthropic/claude-sonnet-4-6"
+      },
+      {
+        "id": "worker",
+        "name": "Worker",
+        "model": "anthropic/claude-haiku-4-5",
+        "thinkingDefault": "off"
+      }
+    ]
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "botToken": "${TELEGRAM_BOT_TOKEN}",
+      "allowFrom": ["${TELEGRAM_ALLOWED_USERS}"],
+      "groupPolicy": "allowlist",
+      "streaming": "partial"
+    }
+  },
+  "gateway": {
+    "bind": "lan",
+    "controlUi": {
+      "allowedOrigins": ["*"],
+      "dangerouslyAllowHostHeaderOriginFallback": true
+    },
+    "auth": {
+      "mode": "token",
+      "token": "1cab91f7d13d580b1c5e3d2417e41275865b0df233ba19dd"
+    }
+  }
+}
